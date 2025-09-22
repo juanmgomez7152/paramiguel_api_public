@@ -1,4 +1,4 @@
-from fastapi import APIRouter, HTTPException, Request, UploadFile, File, Response
+from fastapi import HTTPException, UploadFile, File
 import json
 import logging
 from typing import Dict
@@ -22,7 +22,7 @@ openai_session = OpenAiSession()
 image_parser = ImageParserSession()
 
 class TranslationService:
-    async def process_image(self, file):
+    async def process_image(self, file: UploadFile = File(...)):
         logger.debug(f"Processing image '{file.filename}'...")
         try:
             # Read the image bytes
