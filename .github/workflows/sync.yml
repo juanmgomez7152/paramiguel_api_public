@@ -3,7 +3,7 @@ name: Synchronize to p-l-r-api
 on:
   push:
     branches:
-      - main
+      - public_main
     paths-ignore:
       - '**/README.md'
       - '**/docs/**'
