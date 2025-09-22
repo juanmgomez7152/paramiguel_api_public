@@ -1,0 +1,32 @@
+{
+    "Spanish": {
+        "es":[
+            "Mexico",
+            "Belize",
+            "Costa Rica",
+            "Cuba",
+            "El Salvador",
+            "Guatemala",
+            "Honduras",
+            "Nicaragua",
+            "Panama",
+            "Argentina",
+            "Bolivia",
+            "Chile",
+            "Colombia",
+            "Ecuador",
+            "Guyana",
+            "Paraguay",
+            "Peru",
+            "Suriname",
+            "Spain",
+            "Uruguay",
+            "Venezuela"
+        ]
+    },
+    "English": {
+        "en": [
+            "United States"
+        ]
+    }
+}

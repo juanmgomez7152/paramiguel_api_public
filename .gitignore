@@ -1,0 +1,10 @@
+app/api/openai/.env
+app/api/services/openai/.env
+.env
+.venv
+app/db/test
+app/api/translation/__pycache__
+app/__pycache__
+app/api/services/__pycache__
+app/api/translation/services/__pycache__
+app/api/translation/__pycache__

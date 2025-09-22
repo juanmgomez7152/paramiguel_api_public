@@ -1,0 +1,1 @@
+from app.api.authorization.authorization_endpoints import router

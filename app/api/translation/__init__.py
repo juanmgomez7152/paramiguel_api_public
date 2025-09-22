@@ -1,0 +1,1 @@
+from app.api.translation.translation_endpoints import router
