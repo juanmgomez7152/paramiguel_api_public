@@ -11,24 +11,20 @@ on:
 jobs:
   sync:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
 
     steps:
       - name: Checkout Source Repository
         uses: actions/checkout@v4
         with:
-          persist-credentials: false
-          fetch-depth: 0
           token: ${{ secrets.API_TOKEN_FOR_PLR_API }}
 
       - name: Push to Destination Repository
-        uses: cpina/github-action-push-to-another-repository@main
-        env:
-          API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_FOR_PLR_API }}
+        uses: ad-m/github-push-action@master
         with:
-          source-directory: '.'
-          destination-github-username: 'juanmgomez7152'
-          destination-repository-name: 'p-l-r-api'
-          user-email: 'sync-bot@github.com'
-          user-name: 'github-actions[bot]'
-          target-branch: 'main'
-          commit-message: 'Automated sync: ${{ github.sha }}'
+          github_token: ${{ secrets.API_TOKEN_FOR_PLR_API }}
+          directory: '.'
+          repository: 'juanmgomez7152/p-l-r-api'
+          branch: 'main'
+          force_with_lease: true
