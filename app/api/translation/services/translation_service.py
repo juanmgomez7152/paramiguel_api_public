@@ -61,6 +61,7 @@ class TranslationService:
         try:
             message = request["message"]
             country = request["language"]
+            
             mp3 = await openai_session._openai_audio_call(message,country)
             
             # Get the binary content from the OpenAI response
