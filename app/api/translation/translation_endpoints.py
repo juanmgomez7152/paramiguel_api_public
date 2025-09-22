@@ -18,7 +18,6 @@ async def translate_sent_message(request: Request):
     logger.info("Translating message...")
     json_data = await request.json()
     response,code = await translation_service.translate_text(json_data)
-    logger.info(f"Translation response: {response}") 
     return Response(content=response, media_type="application/json",status_code=code)
 
 @router.post("/turn-text-to-speech/")
