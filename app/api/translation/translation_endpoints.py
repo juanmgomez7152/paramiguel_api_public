@@ -11,8 +11,7 @@ async def upload_picture(file: UploadFile = File(...)):
     if not file:
         raise HTTPException(status_code=400, detail="No file provided")
     response,code = await translation_service.process_image(file)
-    Response(content=response, media_type="application/json",status_code=code)
-    return response
+    return Response(content=response, media_type="application/json",status_code=code)
 
 @router.post("/send-message/")
 async def translate_sent_message(request: Request):
@@ -20,8 +19,7 @@ async def translate_sent_message(request: Request):
     json_data = await request.json()
     response,code = await translation_service.translate_text(json_data)
     logger.info(f"Translation response: {response}") 
-    Response(content=response, media_type="application/json",status_code=code)
-    return response
+    return Response(content=response, media_type="application/json",status_code=code)
 
 @router.post("/turn-text-to-speech/")
 async def turn_text_to_speech(request: Request):
