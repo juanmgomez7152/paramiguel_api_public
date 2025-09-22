@@ -1,0 +1,34 @@
+name: Synchronize to p-l-r-api
+
+on:
+  push:
+    branches:
+      - main
+    paths-ignore:
+      - '**/README.md'
+      - '**/docs/**'
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Source Repository
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+          token: ${{ secrets.API_TOKEN_FOR_PLR_API }}
+
+      - name: Push to Destination Repository
+        uses: cpina/github-action-push-to-another-repository@main
+        env:
+          API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_FOR_PLR_API }}
+        with:
+          source-directory: 'path/to/sync/directory'
+          destination-github-username: 'destination_owner'
+          destination-repository-name: 'p-l-r-api'
+          user-email: 'sync-bot@github.com'
+          user-name: 'github-actions[bot]'
+          target-branch: 'main'
+          commit-message: 'Automated sync: ${{ github.sha }}'
