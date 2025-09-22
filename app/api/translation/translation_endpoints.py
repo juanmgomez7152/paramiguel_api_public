@@ -29,5 +29,8 @@ async def turn_text_to_speech(request: Request):
     json_data = await request.json()
     
     response,code = await translation_service.tts(json_data)
-    Response(content=response, media_type="audio/mpeg", headers={"Content-Disposition": "attachment; filename=output.mp3"}, status_code=code)
-    return response
+    return Response(
+            content=response, 
+             media_type="audio/mpeg", 
+             headers={"Content-Disposition": "attachment; filename=speech.mp3"}, 
+             status_code=code)
