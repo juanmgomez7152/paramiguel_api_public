@@ -25,8 +25,8 @@ jobs:
         env:
           API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_FOR_PLR_API }}
         with:
-          source-directory: 'path/to/sync/directory'
-          destination-github-username: 'destination_owner'
+          source-directory: '.'
+          destination-github-username: 'juanmgomez7152'
           destination-repository-name: 'p-l-r-api'
           user-email: 'sync-bot@github.com'
           user-name: 'github-actions[bot]'
